@@ -25,7 +25,7 @@ jobs:
       - name: modify config.yamal
         run: |
           sed -e 's/user_id: .*/user_id: '\''${{ secrets.DOUBAN_USER_ID }}'\''/' \
-              -e 's/day: .*/day: '3'/' \
+              -e 's/day:/day: 3/' \
               -e 's/user_agent : /user_agent: Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/109.0.0.0 Safari\/537.36/' \
               -e 's/token: .*/token: ${{ secrets.NOTION_TOKEN }}/' \
               -e 's/book_database_id: .*/book_database_id: ${{ secrets.NOTION_BOOKS_DB }}/' \
