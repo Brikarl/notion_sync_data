@@ -7,6 +7,14 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+env:
+  DOUBAN_USER_ID: ${{ secrets.DOUBAN_USER_ID }}
+  NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+  NOTION_BOOKS_DB: ${{ secrets.NOTION_BOOKS_DB }}
+  NOTION_MUSIC_DB: ${{ secrets.NOTION_MUSIC_DB }}
+  NOTION_MOVIE_DB: ${{ secrets.NOTION_MOVIE_DB }}
+  NOTION_GAME_DB: ${{ secrets.NOTION_GAME_DB }}
+
 jobs:
   CI:
     runs-on: macos-latest
