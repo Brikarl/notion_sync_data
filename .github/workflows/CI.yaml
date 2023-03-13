@@ -20,9 +20,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
-      - name: create config
-        run: cp doc/config.yaml.simple doc/config.yaml
-      - name: modify config.yamal
+      - name: create config.yaml
         run: |
           sed -e 's/user_id: .*/user_id: '\''${{ secrets.DOUBAN_USER_ID }}'\''/' \
               -e 's/day:/day: 3/' \
@@ -32,7 +30,7 @@ jobs:
               -e 's/movie_database_id: .*/movie_database_id: ${{ secrets.NOTION_MOVIE_DB }}/' \
               -e 's/music_database_id: .*/music_database_id: ${{ secrets.NOTION_MUSIC_DB }}/' \
               -e 's/game_database_id: .*/game_database_id: ${{ secrets.NOTION_GAME_DB }}/' \
-              doc/config.yaml
+              doc/config.yaml.simple > doc/config.yaml
       - name: install python 3.9
         uses: actions/setup-python@v4
         with:
